@@ -72,9 +72,11 @@
                     if (result.num > 0) {
                         $("#num").html("剩余数量:" + result.num);
                         $("#button").css("background", "#e77005")
+                        isbuy=true
                     } else {
                         $("#num").html("剩余数量:0");
                         $("#button").css("background", "#ccc")
+                        isbuy=false
                         window.clearInterval(job)
                     }
                 }
@@ -85,7 +87,7 @@
     })
 
     function buy() {
-        if (isbuy) {
+        if (!isbuy) {
             alert("不能购买")
         } else {
             $.ajax({
